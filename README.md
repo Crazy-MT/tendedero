@@ -12,7 +12,7 @@
   &nbsp;&nbsp;
   <a href="#build-from-source">Build from source&nbsp;&rsaquo;</a>
   <br><br>
-  English&nbsp;·&nbsp;<a href="docs/i18n/README.es.md">Español</a>&nbsp;·&nbsp;<a href="docs/i18n/README.zh-Hans.md">简体中文</a>
+  English&nbsp;·&nbsp;<a href="docs/i18n/README.es.md">Español</a>&nbsp;·&nbsp;<a href="docs/i18n/README.fr.md">Français</a>&nbsp;·&nbsp;<a href="docs/i18n/README.zh-Hans.md">简体中文</a>
 </p>
 
 <br>
@@ -91,7 +91,7 @@ Tendedero runs entirely on your Mac, and your screenshots never leave it.
 |:--|:--|
 | **Compatibility** | macOS 14 Sonoma or later, on Apple silicon and Intel. Designed for macOS 27. |
 | **Size** | 1.7 MB |
-| **Languages** | English, Spanish, Chinese (Simplified), Turkish, Azerbaijani |
+| **Languages** | English, Spanish, French, Chinese (Simplified), Turkish, Azerbaijani |
 | **Built with** | Swift, AppKit and SwiftUI |
 | **Network access** | None |
 | **Price** | Free |

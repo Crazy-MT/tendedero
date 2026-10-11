@@ -29,6 +29,18 @@ let translations: [String: [String: String]] = [
         "Let it go.": "Y olvídate.",
         "The cross or the Trash. That\u{2019}s it.": "La cruz o la Papelera. Nada más.",
     ],
+    "fr": [
+        "Screenshots, hung out to dry.": "Vos captures, mises à sécher.",
+        "Copied": "Copié",
+        "Click to copy.": "Cliquez pour copier.",
+        "Paste it anywhere, instantly.": "Collez-la où vous voulez, aussitôt.",
+        "Hold to mark up.": "Maintenez pour annoter.",
+        "Annotate, crop or sign in place.": "Annotez, recadrez ou signez sur place.",
+        "Drag to share.": "Glissez pour partager.",
+        "Apps get a copy. Folders keep it.": "Les apps reçoivent une copie. Les dossiers la gardent.",
+        "Let it go.": "Laissez filer.",
+        "The cross or the Trash. That\u{2019}s it.": "La croix ou la corbeille. C\u{2019}est tout.",
+    ],
     "zh-Hans": [
         "Screenshots, hung out to dry.": "截图，挂起来晾着。",
         "Copied": "已复制",
