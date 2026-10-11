@@ -5,3 +5,18 @@ build/
 
 xcuserdata/
 .superpowers/
+
+# Local account, release evidence and unpublished hosting drafts
+.codex/
+app-store-support/
+docs/STORE_METADATA.md
+.env
+.env.*
+*.p12
+*.pfx
+*.cer
+*.csr
+*.mobileprovision
+*.provisionprofile
+*.key
+*.pem

@@ -1,6 +1,6 @@
 # Mac App Store 发布
 
-当前产品名称为「晾贴 / PegNest」，本机 Bundle ID 为 `local.PegNest`，不能将这个临时标识直接用于商店。正式 Bundle ID `<registered-bundle-id>` 已在 Apple Developer 注册；App Store 名称尚未预留，公开搜索不构成商标清查。
+当前产品名称为「晾贴 / PegNest」，本机 Bundle ID 为 `local.PegNest`，不能将这个临时标识直接用于商店。正式发行时由运营者在本机设置已注册的 Bundle ID，账号与签名标识不存入仓库。公开搜索不构成商标清查。
 
 ## 工程
 
