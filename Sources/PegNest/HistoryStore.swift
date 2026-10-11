@@ -50,10 +50,6 @@ final class HistoryStore {
     func restore(limit: Int) -> [URL] {
         recoveryFailed = false
         let fm = FileManager.default
-        guard fm.fileExists(atPath: index.path) else {
-            cleanup(keeping: [])
-            return []
-        }
         do {
             let paths = try JSONDecoder().decode([String].self, from: Data(contentsOf: index))
             var seen = Set<String>()
@@ -73,6 +69,7 @@ final class HistoryStore {
                 let b = (try? $1.resourceValues(forKeys: [.creationDateKey]).creationDate) ?? .distantPast
                 return a == b ? $0.path < $1.path : a < b
             }
+            if recovered.isEmpty && !fm.fileExists(atPath: index.path) { recoveryFailed = false; return [] }
             let kept = Array(recovered.suffix(max(0, limit)))
             do { try save(kept); cleanup(keeping: kept) } catch { return recovered }
             return kept
@@ -80,7 +77,9 @@ final class HistoryStore {
     }
 
     func isPrivate(_ url: URL) -> Bool {
-        managedName(url) && url.deletingLastPathComponent().standardizedFileURL == folder.standardizedFileURL
+        managedName(url)
+            && url.deletingLastPathComponent().resolvingSymlinksInPath().standardizedFileURL.path
+                == folder.resolvingSymlinksInPath().standardizedFileURL.path
             && contains(url, in: folder)
     }
 

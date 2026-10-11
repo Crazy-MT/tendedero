@@ -10,6 +10,21 @@ final class HistoryStoreTests: XCTestCase {
         try FileManager.default.createDirectory(at: root.appendingPathComponent("External"), withIntermediateDirectories: true)
     }
     override func tearDownWithError() throws { try FileManager.default.removeItem(at: root) }
+    func testPrivateCopyRecognizesResolvedDirectoryAlias() throws {
+        let alias = root.appendingPathComponent("Alias")
+        try FileManager.default.createDirectory(at: store.folder, withIntermediateDirectories: true)
+        try FileManager.default.createSymbolicLink(at: alias, withDestinationURL: store.folder)
+        let aliasedStore = HistoryStore(folder: alias, authorizedFolders: { [] })
+        let url = try aliasedStore.capture(.text("alias text"))
+        XCTAssertTrue(aliasedStore.isPrivate(url.resolvingSymlinksInPath()))
+        try aliasedStore.save([url.resolvingSymlinksInPath()])
+        XCTAssertEqual(aliasedStore.restore(limit: 100).count, 1)
+    }
+    func testMissingIndexRecoversPreviouslyCapturedCopies() throws {
+        let url = try store.capture(.text("saved before index"))
+        XCTAssertEqual(store.restore(limit: 100), [url])
+        XCTAssertTrue(FileManager.default.fileExists(atPath: url.path))
+    }
     func testTextRoundTripAndExactDedup() throws {
         let value = " 中文\n\nA \t"
         let url = try store.capture(.text(value))
